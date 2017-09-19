@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Channel;
+use App\Section;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -18,7 +19,7 @@ class ChannelController extends Controller
     {
         $channels = Channel::all();
         return view('channel-list')->with('channels',$channels);
-      //  return $users->toJson();
+//          return $channels->toJson();
 
 
 
@@ -34,7 +35,8 @@ class ChannelController extends Controller
     public function create()
     {
         //
-        return view('channel-create');
+        $sections = Section::all();
+        return view('channel-create')->with('sections',$sections);
     }
 
     /**
@@ -47,9 +49,9 @@ class ChannelController extends Controller
     {
         //d($request);
         $channel = new Channel();
-        $channel->channelname = request('channelname');
-        $channel->ulchannel = request('ulchannel');
-        $channel->profile = request('profile');
+        $channel->channelname = $request->channelname;
+        $channel->ulchannel = $request->ulchannel;
+        $channel->section = $request->section;
         $channel->save();
         return Redirect('channel/list');
 
@@ -64,7 +66,7 @@ class ChannelController extends Controller
     public function show($id)
     {
         //
-        return "oka";
+        return $id;
     }
 
     /**
@@ -75,7 +77,8 @@ class ChannelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ch= Channel::find($id);
+        return view('channel-edit')->with('ch',$ch);
     }
 
     /**
@@ -87,7 +90,12 @@ class ChannelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $ch = Channel::find($id);
+       $ch->channelname = $request->channelname;
+       $ch->ulchannel = $request->ulchannel;
+       $ch->section = $request->section;
+       $ch->save();
+        return Redirect('channel/list');
     }
 
     /**
@@ -96,9 +104,15 @@ class ChannelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $ch = Channel::find($id);
+        $ch->channelname = $request->channelname;
+        $ch->ulchannel = $request->ulchannel;
+        $ch->section = $request->section;
+
+        $ch->delete();
+        return Redirect('channel/list');
     }
 
 

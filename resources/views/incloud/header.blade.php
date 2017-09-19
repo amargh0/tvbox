@@ -6,14 +6,15 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="favicon_16.ico"/>
     <link rel="bookmark" href="favicon_16.ico"/>
-    <link rel="stylesheet" href="/dist/css/site.min.css">
+    <link rel="stylesheet" href="{{ asset('/dist/css/site.min.css') }}">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
-    <script src="/js/html5shiv.js"></script>
-    <script src="/js/respond.min.js"></script>
-     <style>*{margin:0;padding:0;}</style>
+    <script src="{{asset('/js/html5shiv.js')}}"></script>
+    <script src="{{asset('/js/respond.min.js')}}"></script>
+    <style>*{margin:0;padding:0;}</style>
     <script data-cfasync="false" src="{{asset('js/jwplayer.js')}}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 
 
 

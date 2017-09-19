@@ -7,15 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Channel extends Model
 {
     protected $table = 'channel';
-    protected $primaryKey ="channelname";
+    protected $primaryKey ="id";
     public $incrementing = false;
     public $timestamps = false ;
+    protected $with=['gh'];
 
     protected $fillable = [
         'channelname',
-        'ulchnnel',
-        'profile',
-
+        'ulchannel',
+        'id',
+        'section',
     ];
 
     /**
@@ -26,6 +27,9 @@ class Channel extends Model
     protected $hidden = [
         //
     ];
+    function gh(){
+        return $this->belongsTo(Section::class,"section","id");
+    }
 }
 
 
