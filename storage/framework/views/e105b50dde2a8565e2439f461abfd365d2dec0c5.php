@@ -36,8 +36,8 @@
                             <tr>
                                 <td><?php echo e($section->section); ?></td>
                                 <td>
-                                    <a class="fa fa-check text-success text-active" href="/channel/edit/<?php echo e($section->id); ?>" ></a>
-                                    <a class="fa fa-times text-danger text"  href="/channel/delete/<?php echo e($section->id); ?>" onclick=""></a>
+                                    <a class="fa fa-check text-success text-active" href="/section/edit/<?php echo e($section->id); ?>" ></a>
+                                    <a class="fa fa-times text-danger text"  href="/section/delete/<?php echo e($section->id); ?>" onclick=""></a>
                                 </td>
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

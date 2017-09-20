@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $sections=\App\Section::all();
+    return view('welcome')->with('sections',$sections);
 });
 
 Route::get('/play', function () {
-    return redirect('play/1');
+    return redirect('we/1');
 });
 
 Route::get('/play/{ul}','PlayController@index');
@@ -33,8 +34,8 @@ Route::post('/channel/store','ChannelController@store');
 Route::get('/section/list','SectionController@index');
 Route::get('/section/create','SectionController@create');
 Route::post('/section/store','SectionController@store');
-Route::get('/section/edit/{id}','SectionlController@edit');
-Route::post('/section/update/{id}','SectionlController@update');
+Route::get('/section/edit/{id}','SectionController@edit');
+Route::post('/section/update/{id}','SectionController@update');
 Route::get('/section/delete/{id}','SectionController@destroy');
 
 

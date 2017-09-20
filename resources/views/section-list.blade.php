@@ -36,8 +36,8 @@
                             <tr>
                                 <td>{{ $section->section }}</td>
                                 <td>
-                                    <a class="fa fa-check text-success text-active" href="/channel/edit/{{$section->id}}" ></a>
-                                    <a class="fa fa-times text-danger text"  href="/channel/delete/{{$section->id}}" onclick=""></a>
+                                    <a class="fa fa-check text-success text-active" href="/section/edit/{{$section->id}}" ></a>
+                                    <a class="fa fa-times text-danger text"  href="/section/delete/{{$section->id}}" onclick=""></a>
                                 </td>
                             </tr>
                         @endforeach

@@ -47,42 +47,8 @@
           <div class="col-lg-offset-2 col-lg-10">
             <button type="submit" class="btn btn-danger">submit</button>
           </div>
-      </div>
+       </div>
       </form>
       </div>
     </section>
 <?php echo $__env->make('adminpanel.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-
-  
-
-      
-        
-        
-        
-      
-    
-
-    
-      
-
-
-
-        
-          
-          
-        
-        
-
-        
-          
-          
-        
-
-        
-      
-    
-  
-
-
-

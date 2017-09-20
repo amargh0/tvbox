@@ -87,7 +87,6 @@ class SectionController extends Controller
     {
         $se = Section::find($id);
         $se->section = $request->section;
-
         $se->save();
         return Redirect('section/list');
     }

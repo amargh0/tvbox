@@ -13,7 +13,7 @@
             <div class="panel-body">
                 <form class="form-horizontal bucket-form"  action="<?php echo e(asset('/section/store')); ?>" method="post">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Section</label>
+                        <label class="col-sm-3 control-label">Channel Name</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="section" id="" placeholder="Section">
                         </div>

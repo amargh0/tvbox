@@ -15,21 +15,8 @@ class Section extends Model
         'id',
         'section',
     ];
-
     function channels(){
        return $this->hasMany(Channel::class,'id','section');
     }
 
-//    /**
-//     * The attributes that should be hidden for arrays.
-//     *
-//     * @var array
-//     */
-//    protected $hidden = [
-//        //
-//    ];
-////    function section(){
-////        $this->belongsTo(Section::class,"section","id");
-////    }
-////}
 }
