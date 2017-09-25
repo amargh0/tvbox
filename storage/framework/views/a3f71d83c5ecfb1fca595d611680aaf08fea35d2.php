@@ -36,7 +36,7 @@
         <div class="container">
             <div class="header-logo">
                 <h1>
-                    <a title="Watch TV Online Free" href="#" id="logo">Watch TV Online Free</a>
+                    <a title="Watch TV Online Free" href="/" id="logo">Watch TV Online Free</a>
                 </h1>
             </div>
             <div class="mobile-menu"><i class="fa fa-reorder"></i></div>
@@ -44,7 +44,7 @@
                 <ul class="top-menu">
                     <?php $__currentLoopData = $sections; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <li>
-                        <a href="#" title="Home">
+                        <a href="/<?php echo e($section->id); ?>/" title="Home">
                             <span class="li-text"><?php echo e($section->section); ?></span>
                         </a>
                     </li>
@@ -79,14 +79,10 @@
                                    class="video-js vjs-fluid vjs-default-skin  vjs-big-play-centered " controls
                                    preload="auto"
                                    data-setup="">
-                                <source src="rtmp://semerkandglb.mediatriple.net:1935/semerkandliveedge/_definst_/semerkand1" type="application/x-mpegURL">
+                                <source src="<?php echo e($ulchannels); ?>" type="application/x-mpegURL">
                             </video>
-                            <!--<iframe id="iframe-embed" width="100%" height="500" scrolling="no" frameborder="0" src="" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">-->
-
-
-                            <!--</iframe>-->
                         </div>
-                        
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.10.1/videojs-contrib-hls.js"></script>
                         <div id="bar-player">
             <span id="btn-favorite">
 				<a class="btn bp-btn-like" href="javascript:void(0)" data-target="#pop-auth" data-toggle="modal"
@@ -108,7 +104,7 @@
                     <div class="pa-server">
                         <div class="pas-header">
                             <div class="pash-title">
-                                <i>SPORT</i>
+                                <i>Channel List</i>
                             </div>
                         </div>
                         <div class="pas-list">
@@ -119,16 +115,21 @@
                                 </div>
                             </ul>
                             <ul class="list-episodes ps-container active">
-                                <li class="episode-item">
-                                    <a><i class="icon-play_arrow"></i>Bein Sport 1HD</a>
-                                </li>
+
+                                <?php $__currentLoopData = $channels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $channel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li class="episode-item">
+                                        <?php if($currentSection): ?>
+                                            <a href="/<?php echo e($currentSection); ?>/play/<?php echo e($channel->id); ?>"><i class="icon-play_arrow"></i><?php echo e($channel->channelname); ?></a>
+                                        <?php endif; ?>
+
+                                            <?php if(!$currentSection): ?>
+                                                <a href="/play/<?php echo e($channel->id); ?>"><i class="icon-play_arrow"></i><?php echo e($channel->channelname); ?></a>
+                                            <?php endif; ?>
+
+                                    </li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
-
                         </div>
-
-
-
-
                     </div>
                     <div class="clearfix"></div>
                 </div>

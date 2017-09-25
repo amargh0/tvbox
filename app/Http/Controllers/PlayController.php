@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Channel;
 use App\Play;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -14,13 +15,17 @@ class PlayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($ul)
+    public function index($section_id,$channel_id)
     {
 
-        $channels = Play::all();
-        $ulchannel = Play::find($ul);
+        $channels = Channel::find($channel_id);
+        $ulchannel = $channels->ulchannel;
+        $sections=\App\Section::all();
+        $currentSection = $section_id;
+        $channels = \App\Channel::where('section',$section_id)->get();
+        return view('welcome')->with('sections',$sections)->with('channels',$channels)->with('ulchannels',$ulchannel)->with('currentSection',$currentSection);
 
-        return view('play')->with('channels',$channels)->with('ulchannels',$ulchannel);
+//        return view('play')->with('channels',$channels)->with('ulchannels',$ulchannel);
 
         //  return $users->toJson();
 
@@ -31,6 +36,28 @@ class PlayController extends Controller
 
     }
 
+
+
+    public function index2($channel_id)
+    {
+
+        $channels = Channel::find($channel_id);
+        $ulchannel = $channels->ulchannel;
+        $sections=\App\Section::all();
+        $currentSection = '';
+        $channels = \App\Channel::all();
+        return view('welcome')->with('sections',$sections)->with('channels',$channels)->with('ulchannels',$ulchannel)->with('currentSection',$currentSection);
+
+//        return view('play')->with('channels',$channels)->with('ulchannels',$ulchannel);
+
+        //  return $users->toJson();
+
+
+
+
+
+
+    }
 
 
     /**

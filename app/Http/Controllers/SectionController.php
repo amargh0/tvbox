@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Channel;
 use App\Section;
 use Illuminate\Http\Request;
 
@@ -112,6 +113,17 @@ class SectionController extends Controller
         //...
         $countries = $countryRepository->lists();
         return view('auth.register', compact('socialProviders', 'countries'));
+    }
+
+
+    public function tagIndex($id){
+
+        $sections=\App\Section::all();
+        $channels = Channel::where('section',$id)->get();
+//        return $channels;
+        return view('welcome')->with('sections',$sections)->with('channels',$channels);
+
+
     }
 
 }
